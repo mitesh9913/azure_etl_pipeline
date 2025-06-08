@@ -1,0 +1,4 @@
+CREATE LOGIN mitesh9913 WITH PASSWORD = 'miteshspark';
+
+CREATE USER mitesh9913 FOR LOGIN [P2Y\mitesh9913] WITH DEFAULT_SCHEMA = dbo;
+
