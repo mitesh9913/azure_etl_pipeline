@@ -5,7 +5,7 @@ This is my implementation of a complete end-to-end Azure data engineering soluti
 ## 📌 Business Objective
 This project was built as a hands-on learning experience to simulate real-world data engineering workflows. It focuses on cloud migration and modern ETL pipeline design, particularly beneficial for small to medium-sized businesses transitioning from local databases to the Azure ecosystem.
 
-
+![pipeline](https://github.com/user-attachments/assets/06d0c0b7-a0cf-4b5e-9bf7-5060238d7d63)
 
 ## 🔧 Current Environment Setup
 Used the AdventureWorks dataset from Microsoft.
@@ -20,6 +20,7 @@ Installing the Self-Hosted Integration Runtime (SHIR).
 Creating a linked service between ADF and the local SQL Server.
 Building a copy activity pipeline that moves tables into the Azure Data Lake Storage (ADLS) bronze layer.
 
+![adf](https://github.com/user-attachments/assets/9be8be13-045d-4f0f-ac40-c76f96a39cfc)
 
 
 ### 2️⃣ Data Transformation
@@ -30,9 +31,9 @@ Transformation steps:
 Mount Azure Storage in Databricks.
 Process and clean data from bronze to silver.
 Further optimize data for analytics in the gold layer.
-
-
 ADF orchestrates the execution of Databricks notebooks for seamless automation.
+
+![2-transformation](https://github.com/user-attachments/assets/c1457373-43f4-48c0-8639-39e2ba414365)
 
 
 
@@ -41,6 +42,8 @@ Final, cleaned data in the gold layer is loaded into Azure Synapse Analytics and
 Link Azure Data Lake to Synapse.
 Create SQL views using Synapse serverless SQL pool.
 Register views for reporting consumption.
+
+![synapse](https://github.com/user-attachments/assets/20792c52-49c9-439e-8e3f-02cbb654175c)
 
 ### 4️⃣ Data Reporting
 Power BI connects to the Synapse SQL views using DirectQuery for live updates
@@ -51,9 +54,10 @@ The dashboard dynamically reflects changes in the source database.
 To validate the pipeline end-to-end:
 Two new customers were added to the local SQL database.
 The pipeline successfully propagated the change through to Power BI.
+
+![powerbi](https://github.com/user-attachments/assets/bbeddb34-79be-421f-b6d9-208b5c63d9ce)
 The customer count updated from 847 to 849.
-
-
+![test-pipeline](https://github.com/user-attachments/assets/135ebd48-2049-4e59-a63a-b60364d6017d)
 🎉 Test passed: Real-time updates confirmed!
 
 ## 🧠 Conclusion and Learnings
