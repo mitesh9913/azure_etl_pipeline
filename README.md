@@ -11,8 +11,8 @@ This project was built as a hands-on learning experience to simulate real-world 
 Used the AdventureWorks dataset from Microsoft.
 Deployed a Microsoft SQL Server locally.
 Loaded and managed the dataset via SQL Server Management Studio (SSMS).
-Created a dedicated SQL user named mrk.
-Stored mrk's credentials securely in Azure Key Vault.
+Created a dedicated SQL user.
+Stored credentials securely in Azure Key Vault.
 
 ### 1️⃣ Data Ingestion
 Data is ingested from the local SQL Server into Azure using Azure Data Factory (ADF). Steps included:
