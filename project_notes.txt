@@ -1,0 +1,90 @@
+Project Note: Data Engineering Project (Azure Databricks & Azure Data Factory)
+Prepared By: Mitesh Prajapati
+Project: Cloud-Based ETL Pipeline Using Azure
+
+Project Overview
+Common real-world use case: Migrating an on-premises Microsoft SQL Server database to Azure Cloud.
+
+Utilized Azure Data Factory (ADF) for ingesting all tables from MSSQL to Azure Data Lake Gen2.
+
+Implemented Lakehouse architecture with three layers:
+
+Bronze: Raw exact copy of source data.
+
+Silver: Cleaned and transformed data.
+
+Gold: Curated, analytics-ready data.
+
+Data transformations done in Azure Databricks using PySpark.
+
+Final data loaded into Azure Synapse Analytics, enabling seamless integration with Power BI for reporting.
+
+Security implemented using Azure Active Directory and Azure Key Vault for credential management.
+
+Full pipeline automated using ADF pipelines and Databricks notebook jobs.
+
+Environment Setup
+Resource group: rg-mitesh-de-project
+
+Data source: On-prem MSSQL, accessed with SQL user mitesh.
+
+Passwords stored encrypted in Azure Key Vault.
+
+Self-Hosted Integration Runtime (SHIR) installed locally for secure data ingestion.
+
+Data Ingestion
+ADF pipeline copies all MSSQL tables to Azure Data Lake (bronze layer).
+
+Used getSchema.sql script to dynamically extract table list.
+
+Established linked services between ADF, Azure Data Lake, and Synapse.
+
+Addressed Azure Key Vault RBAC access issues during pipeline setup.
+
+Data Transformation (Azure Databricks)
+Created Spark cluster with credential passthrough enabled for secure ADLS Gen2 access.
+
+Mounted Data Lake containers for bronze, silver, and gold layers.
+
+Common transformations:
+
+Date/time columns converted to date-only format.
+
+Column name normalization (PascalCase → snake_case).
+
+Simple joins and aggregations for silver layer.
+
+Databricks notebooks integrated into ADF pipelines for orchestration.
+
+Data Loading (Azure Synapse)
+Serverless SQL pool used to query Delta Lake files from the gold layer.
+
+Created dynamic stored procedures and pipelines in Synapse to generate SQL views for each table.
+
+Power BI connected directly to Synapse views for real-time reporting.
+
+Reporting (Power BI)
+Power BI dashboards built on top of Synapse views.
+
+Uses DirectQuery to dynamically reflect data updates from pipeline.
+
+End-to-End Pipeline Testing
+Added two new customers to on-prem MSSQL.
+
+Pipeline successfully reflected changes through to Power BI, confirming full automation.
+
+Next Steps / To-Do
+Research common Databricks transformations for relational data.
+
+Practice PySpark exercises focusing on those transformations.
+
+Develop an incremental data loading version of the project for efficiency.
+
+Address and document Azure Key Vault RBAC and other permission fixes encountered.
+
+Optimize transformation notebooks for larger datasets.
+
+Cost Notes (Estimates)
+Current testing done with small dataset (~7MB).
+
+Approximate cost observed during project phases ranged between $180 - $185 (monitoring ongoing costs recommended).
